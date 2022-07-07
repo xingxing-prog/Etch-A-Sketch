@@ -1,0 +1,54 @@
+
+/*:root{
+    --grid-cols:1;
+    --grid-rows:1;
+}*/
+
+h1{
+    font-family:'Times New Roman', Times, serif;
+    font-size:48px;
+    text-align:center;
+
+}
+
+#slider{
+    text-align:center;
+}
+
+main{
+    display:flex;
+    gap:50px;
+}
+
+#control{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+#container{
+    width:500px;
+    height:500px;
+    display:grid;
+    border:0.1px solid gray;
+    background:rgb(255, 255, 255);
+    grid-template-rows:repeat(var(--grid-rows), 1fr);
+    grid-template-columns:repeat(var(--grid-cols), 1fr);
+    
+     
+   
+}
+
+
+
+.cell{
+    border:0.1px solid red;
+    /*height:auto;
+    width:auto;*/
+}
+
+.cell:hover{
+    background:green;
+}
+
+s
