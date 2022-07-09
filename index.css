@@ -13,6 +13,7 @@ h1{
 
 #slider{
     text-align:center;
+    width:150px;
 }
 
 main{
@@ -24,22 +25,38 @@ main{
     display:flex;
     flex-direction:column;
     gap:30px;
+    margin:100px;
+    align-items:center;
+
+
+}
+
+button{
+    height:32px;
+    width:150px;
+    border-radius:5px;
+    font-family: "serif";
+    font-weight:bold;
+    background-color:"white";
+    box-shadow:3px 3px 3px "gray";
+    border:1px solid gray;
+
+
 }
 
 #container{
-    width:500px;
-    height:500px;
-    overflow:hidden;
+    width:600px;
+    height:600px;
+    /*overflow:hidden;*/
     display:grid;
     border:0.1px solid gray;
     background:rgb(255, 255, 255);
     grid-template-rows:repeat(var(--grid-rows), 1fr);
     grid-template-columns:repeat(var(--grid-cols), 1fr);
-   
+    box-shadow:2px 2px 2px gray;
     
-     
-   
 }
+
 
 
 
@@ -47,9 +64,13 @@ main{
     /*border:0.1px solid red;*/
     height:auto;
     width:auto;
-    aspect-ratio:1 / 1;
+    /*aspect-ratio:1 / 1;*/
 }
 
+.active{
+    background:green;
+    color: white;
+}
 /*.cell:hover{
     background:rgb(13, 27, 13);
 }*/

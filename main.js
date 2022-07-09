@@ -4,6 +4,8 @@ var slider = document.getElementById("slider");
 var clear = document.getElementById("clear");
 var eraser = document.getElementById("eraser");
 var currentColor = document.getElementById("currentColor");
+var colorPicker = document.getElementById("color");
+
 
 
 function makeColumns(rows, cols){
@@ -12,15 +14,94 @@ function makeColumns(rows, cols){
     
     for (let i=0; i<(rows*cols);i++){
         let cell=document.createElement('div'); 
+        cell.addEventListener('mouseover', changeColor);
+        cell.addEventListener('mousedown', changeColor);
+        
         container.appendChild(cell).className="cell"; 
-    }
 
+    }
 
 }
 
+var currentMode = 'color';
+myRange.addEventListener('click', getDifferentSize);
+myRange.addEventListener('click', reload);
+
+eraser.addEventListener("click", ()=>{
+    currentMode ="eraser";
+    eraser.className ="active";
+    colorPicker.className ="inactive";
+    
+});
+
+colorPicker.addEventListener('click', ()=>{
+    currentMode ="color";
+    colorPicker.className="active";
+    eraser.className ="inactive";
+
+});
 
 
-function getGridSize(){
+
+
+
+
+//currentColor.addEventListener('input', changeColor);
+let mousedown = false;
+document.body.onmousedown =()=>(mousedown =true);
+document.body.onmouseup =() =>(mousedown =false);
+
+function changeColor(e){
+    console.log(e.target);
+    if(e.type === "mouseover" && !mousedown) return;
+    else if(currentMode === "color"){
+        e.target.style.backgroundColor =currentColor.value;
+         
+    }
+    else if(currentMode === "eraser"){
+        e.target.style.backgroundColor = "white";
+         
+    }
+ 
+    
+}
+
+function getDefaultSize(){
+    var size = 16;
+}
+
+function reload(){
+    container.innerHTML ="";
+    var size = myRange.value;
+    makeColumns(size, size);
+}
+
+function getDifferentSize(){
+    var size = myRange.value;
+    slider.textContent = size +" × "+size;
+}
+
+function setUpSketch(){
+    reload();
+    getDifferentSize();
+        
+}
+
+setUpSketch();
+
+function clearAll(e){
+    console.log(e);
+    container.innerHTML ="";
+    reload();
+    //getDifferentSize();
+}
+
+clear.addEventListener('click', clearAll);
+
+
+
+
+/*function getGridSize(){
 
     var col = myRange.value;
   
@@ -74,7 +155,7 @@ function getGridSize(){
 }
 getGridSize();
 
-myRange.addEventListener('click', getGridSize);
+myRange.addEventListener('click', getGridSize);*/
 
 
 
