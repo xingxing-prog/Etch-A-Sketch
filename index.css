@@ -1,8 +1,8 @@
 
-/*:root{
+:root{
     --grid-cols:1;
     --grid-rows:1;
-}*/
+}
 
 h1{
     font-family:'Times New Roman', Times, serif;
@@ -29,11 +29,13 @@ main{
 #container{
     width:500px;
     height:500px;
+    overflow:hidden;
     display:grid;
     border:0.1px solid gray;
     background:rgb(255, 255, 255);
     grid-template-rows:repeat(var(--grid-rows), 1fr);
     grid-template-columns:repeat(var(--grid-cols), 1fr);
+   
     
      
    
@@ -42,12 +44,13 @@ main{
 
 
 .cell{
-    border:0.1px solid red;
-    /*height:auto;
-    width:auto;*/
+    /*border:0.1px solid red;*/
+    height:auto;
+    width:auto;
+    aspect-ratio:1 / 1;
 }
 
-.cell:hover{
-    background:green;
-}
+/*.cell:hover{
+    background:rgb(13, 27, 13);
+}*/
 
